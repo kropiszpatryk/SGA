@@ -1,5 +1,5 @@
 import random
-
+#sssss
 def random_number():
     for i in range(ile_os):
         number = random.randint(0,255)
