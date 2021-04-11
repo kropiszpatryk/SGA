@@ -1,4 +1,23 @@
 import random
+import sys
+
+def start():
+    random_number()
+    conn_pairs()
+    print("====================================================")
+    mutation()
+    print("====================================================")
+    change_int()
+    print("====================================================")
+    function()
+    print("====================================================")
+    probability()
+    print("====================================================")
+    draw()
+    print("====================================================")
+    selection()
+    print("====================================================")
+   # save_to_file()
 
 def random_number():
     for i in range(ile_os):
@@ -70,10 +89,16 @@ def draw():
     num_rand = random.randint(0, ile_os)
     for num_rand in range(len(numer_list)):
         fun_draw.append(function_list[num_rand])
-
     print(fun_draw)
 def selection():
     print("selekcja")
+    for x in range(len(selection_list)):
+        print(selection_list[x])
+
+#def save_to_file():
+    #sys.filepath = open("esi_db.txt", "w")
+   # print(start())
+    #sys.filepath.close()
 
 
 a = 4
@@ -91,18 +116,4 @@ function_list =[]
 numer_list = []
 numer_list_binary = []
 
-random_number()
-conn_pairs()
-print("====================================================")
-mutation()
-print("====================================================")
-change_int()
-print("====================================================")
-function()
-print("====================================================")
-probability()
-print("====================================================")
-draw()
-print("====================================================")
-selection()
-print("====================================================")
+start()
