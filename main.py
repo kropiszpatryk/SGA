@@ -27,6 +27,26 @@ def conn_pairs():
             p1  = numer_list_binary[x+1][:pc] + numer_list_binary[x][pc:]
             p2  = numer_list_binary[x][:pc] + numer_list_binary[x+1][pc:]
             print(p1, p2)
+            numer_list_binary[x] = p1
+            numer_list_binary[x+1] = p2
+def mutation():
+    print(numer_list_binary)
+    numer_list_last = []
+    numer_list_last = numer_list_binary
+    for q in range(len(numer_list_binary)):
+        for o in range(len(numer_list_binary[q])):
+            rand_mut = random.random()
+            if rand_mut < pr_mut:
+
+                if numer_list_binary[q][o] == '1':
+                    #numer_list_binary[q][o] = '0'
+                    numer_list_last[q][o] = '0'
+                else:
+                    numer_list_last[q][o] = '1'
+            #else:
+
+    print(numer_list_binary)
+    print(numer_list_last)
 
 
 a = 4
@@ -36,11 +56,12 @@ ile_wyn = 40 #liczba uruchomien porogramu
 lb_pop = 10 #liczba populacji
 ile_os = 6 #liczba osobników w populacji
 pr_krzyz = 0.8 #prawdopodobnienstwo krzyzowania
-pr_mut = 25 #prawdopodobnieństwo mutacji
+pr_mut = 0.1 #prawdopodobnieństwo mutacji
 
 numer_list = []
 numer_list_binary = []
 random_number()
 conn_pairs()
+mutation()
 print(numer_list)
 print(numer_list_binary)
