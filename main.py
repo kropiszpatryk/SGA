@@ -30,24 +30,25 @@ def conn_pairs():
             numer_list_binary[x] = p1
             numer_list_binary[x+1] = p2
 def mutation():
-    print(numer_list_binary)
-    numer_list_last = []
-    numer_list_last = numer_list_binary
     for q in range(len(numer_list_binary)):
+        numer_list_last = []
         for o in range(len(numer_list_binary[q])):
             rand_mut = random.random()
             if rand_mut < pr_mut:
-
                 if numer_list_binary[q][o] == '1':
-                    #numer_list_binary[q][o] = '0'
-                    numer_list_last[q][o] = '0'
+                    numer_list_last.append('0')
                 else:
-                    numer_list_last[q][o] = '1'
-            #else:
+                    numer_list_last.append('1')
+            else:
+                numer_list_last.append(numer_list_binary[q][o])
+        numer_list_binary[q] = ''.join(numer_list_last)
+        print(numer_list_last)
+        print(numer_list_binary)
 
-    print(numer_list_binary)
-    print(numer_list_last)
-
+def change_int():
+    for h in range(len(numer_list_binary)):
+        numer_list[h] = int(numer_list_binary[h],2)
+    print(numer_list)
 
 a = 4
 b = 7
@@ -60,8 +61,10 @@ pr_mut = 0.1 #prawdopodobnieństwo mutacji
 
 numer_list = []
 numer_list_binary = []
+
 random_number()
 conn_pairs()
 mutation()
-print(numer_list)
-print(numer_list_binary)
+change_int()
+
+#print(numer_list_binary)
