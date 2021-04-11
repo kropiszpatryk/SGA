@@ -18,15 +18,15 @@ def conn_pairs():
     change_binary()
     for x in range(0, len(numer_list),2):
         w_lb_psl = random.random()
-        if w_lb_psl > pr_krzyz:
-            print("")
-        else:
-            pc = random.randint(1,7)
-            p1  = numer_list_binary[x+1][:pc] + numer_list_binary[x][pc:]
-            p2  = numer_list_binary[x][:pc] + numer_list_binary[x+1][pc:]
+        if w_lb_psl < pr_krzyz:
+            pc = random.randint(1, 7)
+            p1 = numer_list_binary[x + 1][:pc] + numer_list_binary[x][pc:]
+            p2 = numer_list_binary[x][:pc] + numer_list_binary[x + 1][pc:]
             numer_list_binary[x] = p1
-            numer_list_binary[x+1] = p2
-            print("Osobniki: " +p1 + " oraz " + p2 + " krzyżują się")
+            numer_list_binary[x + 1] = p2
+            print("Osobniki: " + p1 + " oraz " + p2 + " krzyżują się")
+
+
 def mutation():
     print("Lista przed mutacją: ", numer_list_binary)
     for q in range(len(numer_list_binary)):
@@ -48,6 +48,18 @@ def change_int():
         numer_list[h] = int(numer_list_binary[h],2)
     print("Lista po mutacji i konwersji: ",numer_list)
 
+def function():
+    for v in range(len(numer_list)):
+        fun = (a * numer_list[v]**2) + b * (numer_list[v]) + c
+        print("Wynik funkcji dla zmiennej", numer_list[v], "wynosi: ", fun)
+
+def selection():
+    print("selekca")
+
+
+
+
+
 a = 4
 b = 7
 c = 2
@@ -66,7 +78,8 @@ print("====================================================")
 mutation()
 print("====================================================")
 change_int()
-
-
+print("====================================================")
+function()
+print("====================================================")
 
 #print(numer_list_binary)
