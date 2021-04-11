@@ -51,13 +51,29 @@ def change_int():
 def function():
     for v in range(len(numer_list)):
         fun = (a * numer_list[v]**2) + b * (numer_list[v]) + c
-        print("Wynik funkcji dla zmiennej", numer_list[v], "wynosi: ", fun)
+        function_list.append(fun)
+        print("Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x:", numer_list[v], "wynosi: ", fun)
+    print(function_list)
+def probability():
+    checking = 0
+    fun_sum = sum(function_list)
+    for o in range(ile_os):
+        propab_fun = function_list[o] / fun_sum
+        selection_list.append(propab_fun)
+        print("Wynik prawdopodobieństwa wynosi: ",propab_fun)
+    print(selection_list)
+        #checking += propab_fun
+    #rint(checking)
 
+def draw():
+    print("losowanie")
+    num_rand = random.randint(0, ile_os)
+    for num_rand in range(len(numer_list)):
+        fun_draw.append(function_list[num_rand])
+
+    print(fun_draw)
 def selection():
     print("selekcja")
-
-
-
 
 
 a = 4
@@ -69,6 +85,9 @@ ile_os = 6 #liczba osobników w populacji
 pr_krzyz = 0.8 #prawdopodobnienstwo krzyzowania
 pr_mut = 0.1 #prawdopodobnieństwo mutacji
 
+selection_list = []
+fun_draw = []
+function_list =[]
 numer_list = []
 numer_list_binary = []
 
@@ -81,6 +100,9 @@ change_int()
 print("====================================================")
 function()
 print("====================================================")
+probability()
+print("====================================================")
+draw()
+print("====================================================")
 selection()
 print("====================================================")
-#print(numer_list_binary)
