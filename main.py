@@ -1,5 +1,5 @@
 import random
-#sssss
+
 def random_number():
     for i in range(ile_os):
         number = random.randint(0,255)
@@ -19,17 +19,16 @@ def conn_pairs():
     for x in range(0, len(numer_list),2):
         w_lb_psl = random.random()
         if w_lb_psl > pr_krzyz:
-            print("osobniki sie nie krzyzuja")
+            print("")
         else:
-            print("Krzyzuja sie")
-            print(numer_list[x], numer_list[x+1])
             pc = random.randint(1,7)
             p1  = numer_list_binary[x+1][:pc] + numer_list_binary[x][pc:]
             p2  = numer_list_binary[x][:pc] + numer_list_binary[x+1][pc:]
-            print(p1, p2)
             numer_list_binary[x] = p1
             numer_list_binary[x+1] = p2
+            print("Osobniki: " +p1 + " oraz " + p2 + " krzyżują się")
 def mutation():
+    print("Lista przed mutacją: ", numer_list_binary)
     for q in range(len(numer_list_binary)):
         numer_list_last = []
         for o in range(len(numer_list_binary[q])):
@@ -42,13 +41,12 @@ def mutation():
             else:
                 numer_list_last.append(numer_list_binary[q][o])
         numer_list_binary[q] = ''.join(numer_list_last)
-        print(numer_list_last)
-        print(numer_list_binary)
+    print("Lista po mutacji: ", numer_list_binary)
 
 def change_int():
     for h in range(len(numer_list_binary)):
         numer_list[h] = int(numer_list_binary[h],2)
-    print(numer_list)
+    print("Lista po mutacji i konwersji: ",numer_list)
 
 a = 4
 b = 7
@@ -64,7 +62,11 @@ numer_list_binary = []
 
 random_number()
 conn_pairs()
+print("====================================================")
 mutation()
+print("====================================================")
 change_int()
+
+
 
 #print(numer_list_binary)
