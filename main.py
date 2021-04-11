@@ -54,7 +54,7 @@ def function():
         print("Wynik funkcji dla zmiennej", numer_list[v], "wynosi: ", fun)
 
 def selection():
-    print("selekca")
+    print("selekcja")
 
 
 
@@ -81,5 +81,6 @@ change_int()
 print("====================================================")
 function()
 print("====================================================")
-
+selection()
+print("====================================================")
 #print(numer_list_binary)
