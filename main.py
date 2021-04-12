@@ -25,15 +25,12 @@ def conn_pairs():
             p2 = numer_list_binary[x][:pc] + numer_list_binary[x + 1][pc:]
             numer_list_binary[x] = p1
             numer_list_binary[x + 1] = p2
-            with open("esi_db.txt", "a") as f:
-                print("Osobniki: " + p1 + " oraz " + p2 + " krzyżują się", file=f)
+            print("Osobniki: " + p1 + " oraz " + p2 + " krzyżują się")
 
 
 
 def mutation():
-    with open("esi_db.txt", "a") as f:
-        print("", file=f)
-        print("Lista przed mutacją: ", numer_list_binary, file=f)
+    print("Lista przed mutacją: ", numer_list_binary)
     for q in range(len(numer_list_binary)):
         numer_list_last = []
         for o in range(len(numer_list_binary[q])):
@@ -46,26 +43,21 @@ def mutation():
             else:
                 numer_list_last.append(numer_list_binary[q][o])
         numer_list_binary[q] = ''.join(numer_list_last)
-    with open("esi_db.txt", "a") as f:
-        print("Lista po mutacji: ", numer_list_binary, file=f)
-        print("", file=f)
+        print("Lista po mutacji: ", numer_list_binary)
+
 
 def change_int():
     for h in range(len(numer_list_binary)):
         numer_list[h] = int(numer_list_binary[h],2)
-    with open("esi_db.txt", "a") as f:
-        print("Lista po mutacji i konwersji: ",numer_list, file=f)
-        print("", file=f)
+    print("Lista po mutacji i konwersji: ",numer_list)
+
 
 def function():
     for v in range(len(numer_list)):
         fun = (a * numer_list[v]**2) + b * (numer_list[v]) + c
         function_list.append(fun)
-        with open("esi_db.txt", "a") as f:
-            print("Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x:", numer_list[v], "wynosi: ", fun, file=f)
-    with open("esi_db.txt", "a") as f:
-        print(function_list, file=f)
-        print("", file=f)
+        print("Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x:", numer_list[v], "wynosi: ", fun)
+
 
 def probability():
     checking = 0
@@ -73,40 +65,80 @@ def probability():
     for o in range(ile_os):
         propab_fun = function_list[o] / fun_sum
         selection_list.append(propab_fun)
-        with open("esi_db.txt", "a") as f:
-            print("Wynik prawdopodobieństwa wynosi: ",propab_fun, file=f)
-    with open("esi_db.txt", "a") as f:
-        print(selection_list, file=f)
-        print("", file=f)
+        print("Wynik prawdopodobieństwa wynosi: ",propab_fun)
         #checking += propab_fun
     #rint(checking)
 
 def draw():
-    print("losowanie")
-
     for x in range(len(numer_list)):
         ran = random.randint(0, ile_os-1)
         fun_draw.append(numer_list[ran])
-    with open("esi_db.txt", "a") as f:
-        print(fun_draw, file=f)
-        print("=" * 100, file=f)
+    print("Wynik losowania wynosi", fun_draw)
+
 
 
 def selection():
     print("selekcja")
-    for x in range(len(selection_list)):
-        print(selection_list[x])
+    [float(x) for x in selection_list]
+    selection_list.sort()
 
+    print(selection_list)
+
+    person = 0.0
+    for s in range(ile_os):
+        ran = random.random()
+        if ran <= selection_list[0]:
+            print("ran jest mniejszy od pierszego indexu")
+            person = selection_list[0]
+        elif ran >= selection_list[0] and ran <= selection_list[1]:
+            print("ran jest w przedziale 0 i 1")
+            person = selection_list[1]
+        elif ran >= selection_list[1] and ran <= selection_list[2]:
+            print("ran jest w przedziale 1 i 2")
+            person = selection_list[2]
+        elif ran >= selection_list[2] and ran <= selection_list[3]:
+            print("ran jest w przedziale 2 i 3")
+            person = selection_list[3]
+        elif ran >= selection_list[3] and ran <= selection_list[4]:
+            print("ran jest w przedziale 3 i 4")
+            person = selection_list[4]
+        elif ran >= selection_list[4] and ran <= selection_list[5]:
+            print("ran jest w przedziale 4 i 5")
+            person = selection_list[5]
+        else:
+            print("ran jest wiekszy od ostatniego indexu")
+            person = selection_list[0]
+        selection_list_finally.append(person)
+
+    selection_list_finally.sort()
+
+    best = selection_list_finally[5]
+    f_best = (a * best**2) + b * (best) + c
+
+
+    with open("esi_db.txt", "a") as f:
+        print(f"best = {best} F(best) = {f_best}", file=f)
+        print("", file=f)
 
 def start():
+
+    print("*" * 100)
     random_number()
+    print("*" * 100)
     conn_pairs()
+    print("*" * 100)
     mutation()
+    print("*" * 100)
     change_int()
+    print("*" * 100)
     function()
+    print("*" * 100)
     probability()
+    print("*" * 100)
     draw()
+    print("*" * 100)
     selection()
+    print("*" * 100)
 
 
 a = 4
@@ -123,5 +155,7 @@ fun_draw = [] #lista do nkrotnego losowaniia
 function_list =[] #wyniki funkcjii
 numer_list = [] #wyniki po mutacji i kowersji
 numer_list_binary = [] # wyniki po mutacji
+selection_list_finally = [] # nowa populacja
 
-start()
+for x in range(ile_wyn):
+    start()
