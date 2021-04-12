@@ -1,23 +1,5 @@
 import random
-import sys
 
-def start():
-    random_number()
-    conn_pairs()
-    print("====================================================")
-    mutation()
-    print("====================================================")
-    change_int()
-    print("====================================================")
-    function()
-    print("====================================================")
-    probability()
-    print("====================================================")
-    draw()
-    print("====================================================")
-    selection()
-    print("====================================================")
-   # save_to_file()
 
 def random_number():
     for i in range(ile_os):
@@ -43,11 +25,15 @@ def conn_pairs():
             p2 = numer_list_binary[x][:pc] + numer_list_binary[x + 1][pc:]
             numer_list_binary[x] = p1
             numer_list_binary[x + 1] = p2
-            print("Osobniki: " + p1 + " oraz " + p2 + " krzyżują się")
+            with open("esi_db.txt", "a") as f:
+                print("Osobniki: " + p1 + " oraz " + p2 + " krzyżują się", file=f)
+
 
 
 def mutation():
-    print("Lista przed mutacją: ", numer_list_binary)
+    with open("esi_db.txt", "a") as f:
+        print("", file=f)
+        print("Lista przed mutacją: ", numer_list_binary, file=f)
     for q in range(len(numer_list_binary)):
         numer_list_last = []
         for o in range(len(numer_list_binary[q])):
@@ -60,45 +46,67 @@ def mutation():
             else:
                 numer_list_last.append(numer_list_binary[q][o])
         numer_list_binary[q] = ''.join(numer_list_last)
-    print("Lista po mutacji: ", numer_list_binary)
+    with open("esi_db.txt", "a") as f:
+        print("Lista po mutacji: ", numer_list_binary, file=f)
+        print("", file=f)
 
 def change_int():
     for h in range(len(numer_list_binary)):
         numer_list[h] = int(numer_list_binary[h],2)
-    print("Lista po mutacji i konwersji: ",numer_list)
+    with open("esi_db.txt", "a") as f:
+        print("Lista po mutacji i konwersji: ",numer_list, file=f)
+        print("", file=f)
 
 def function():
     for v in range(len(numer_list)):
         fun = (a * numer_list[v]**2) + b * (numer_list[v]) + c
         function_list.append(fun)
-        print("Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x:", numer_list[v], "wynosi: ", fun)
-    print(function_list)
+        with open("esi_db.txt", "a") as f:
+            print("Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x:", numer_list[v], "wynosi: ", fun, file=f)
+    with open("esi_db.txt", "a") as f:
+        print(function_list, file=f)
+        print("", file=f)
+
 def probability():
     checking = 0
     fun_sum = sum(function_list)
     for o in range(ile_os):
         propab_fun = function_list[o] / fun_sum
         selection_list.append(propab_fun)
-        print("Wynik prawdopodobieństwa wynosi: ",propab_fun)
-    print(selection_list)
+        with open("esi_db.txt", "a") as f:
+            print("Wynik prawdopodobieństwa wynosi: ",propab_fun, file=f)
+    with open("esi_db.txt", "a") as f:
+        print(selection_list, file=f)
+        print("", file=f)
         #checking += propab_fun
     #rint(checking)
 
 def draw():
     print("losowanie")
-    num_rand = random.randint(0, ile_os)
-    for num_rand in range(len(numer_list)):
-        fun_draw.append(function_list[num_rand])
-    print(fun_draw)
+
+    for x in range(len(numer_list)):
+        ran = random.randint(0, ile_os-1)
+        fun_draw.append(numer_list[ran])
+    with open("esi_db.txt", "a") as f:
+        print(fun_draw, file=f)
+        print("=" * 100, file=f)
+
+
 def selection():
     print("selekcja")
     for x in range(len(selection_list)):
         print(selection_list[x])
 
-#def save_to_file():
-    #sys.filepath = open("esi_db.txt", "w")
-   # print(start())
-    #sys.filepath.close()
+
+def start():
+    random_number()
+    conn_pairs()
+    mutation()
+    change_int()
+    function()
+    probability()
+    draw()
+    selection()
 
 
 a = 4
@@ -110,10 +118,10 @@ ile_os = 6 #liczba osobników w populacji
 pr_krzyz = 0.8 #prawdopodobnienstwo krzyzowania
 pr_mut = 0.1 #prawdopodobnieństwo mutacji
 
-selection_list = []
-fun_draw = []
-function_list =[]
-numer_list = []
-numer_list_binary = []
+selection_list = [] #wyniki prawdoipodobnienstwa
+fun_draw = [] #lista do nkrotnego losowaniia
+function_list =[] #wyniki funkcjii
+numer_list = [] #wyniki po mutacji i kowersji
+numer_list_binary = [] # wyniki po mutacji
 
 start()
