@@ -157,5 +157,12 @@ numer_list = [] #wyniki po mutacji i kowersji
 numer_list_binary = [] # wyniki po mutacji
 selection_list_finally = [] # nowa populacja
 
+
 for x in range(ile_wyn):
     start()
+    selection_list.clear()
+    fun_draw.clear()
+    function_list.clear()
+    numer_list.clear()
+    numer_list_binary.clear()
+    selection_list_finally.clear()
