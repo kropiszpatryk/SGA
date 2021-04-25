@@ -10,10 +10,12 @@ def random_number():
         numer_list.append(number)
 
 def change_binary():
+    numer_list_binary.clear()
     for a in range(len(numer_list)):
         binary = bin(numer_list[a])
         numer_list_binary.append(binary)
     for nums in range(len(numer_list_binary)):
+        print("HEJHEJEJEHJE", nums, len(numer_list_binary))
         numer_list_binary[nums] = numer_list_binary[nums][2:]
         numer_list_binary[nums] = ('0' * (8 - (len(numer_list_binary[nums])))) + numer_list_binary[nums]
 
@@ -24,6 +26,7 @@ def conn_pairs():
         w_lb_psl = random.random()
         if w_lb_psl < pr_krzyz:
             pc = random.randint(1, 7)
+            print("siema", numer_list_binary, x)
             p1 = numer_list_binary[x + 1][:pc] + numer_list_binary[x][pc:]
             p2 = numer_list_binary[x][:pc] + numer_list_binary[x + 1][pc:]
             numer_list_binary[x] = p1
@@ -56,6 +59,7 @@ def change_int():
 
 
 def function():
+    function_list.clear()
     for v in range(len(numer_list)):
         fun = (a * numer_list[v]**2) + b * (numer_list[v]) + c
         function_list.append(fun)
@@ -64,10 +68,12 @@ def function():
 
 
 def probability():
+    selection_list.clear()
     #checking = 0
     fun_sum = sum(function_list)
     print(fun_sum)
     for o in range(ile_os):
+        print("siema siema", o, len(function_list))
         propab_fun = function_list[o] / fun_sum
         selection_list.append(propab_fun)
         print("Wynik prawdopodobieństwa wynosi: ",propab_fun)
@@ -75,36 +81,40 @@ def probability():
     #print(checking)
 
 
-
-
-
 def selection():
+    selection_list_finally.clear()
     print("selekcja")
    # [float(x) for x in fun_draw]
     print(numer_list)
     print(selection_list)
-    f = 0
+
     for s in range(ile_os):
+        f = 0
         ran = random.random()
         for x in range(len(selection_list)):
-            if ran > f and ran < selection_list[x] + f:
+            if f < ran < selection_list[x] + f:
                 selection_list_finally.append(numer_list[x])
 
+            f += selection_list[x]
     #selection_list_finally.append(person)
 
    #selection_list_finally.sort()
+    print("ez", selection_list_finally)
+    print("ss", numer_list)
     numer_list.clear()
-    for x in range(len(selection_list_finally)):
-        numer_list.append(selection_list_finally[x])
+    for z in range(len(selection_list_finally)):
+        numer_list.append(selection_list_finally[z])
 
 
     #print(numer_list)
    # print(selection_list_finally)
 
-
+def func(x):
+    return (a * x**2) + (b * x) + c
 
 def start():
     check()
+    numer_list.clear()
     print("*" * 100)
     random_number()
     print("*" * 100)
@@ -122,14 +132,12 @@ def start():
         selection()
         print("*" * 100)
         final_list = []
-        for x in range(len(selection_list_finally)):
-            f_best = (a * selection_list_finally[x] ** 2) + b * (selection_list_finally[x]) + c
-            final_list.append(f_best)
-            best = final_list[-1]
 
-        with open("esi_db.txt", "a") as f:
-            print(f"best = {best} F(best) = {f_best}", file=f)
-            print("", file=f)
+    best = max(numer_list, key=lambda x: func(x))
+
+    with open("esi_db.txt", "a") as f:
+        print(f"best = {best} F(best) = {func(best)}", file=f)
+        print("", file=f)
 
 a = 4
 b = 7
