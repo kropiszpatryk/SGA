@@ -15,7 +15,6 @@ def change_binary():
         binary = bin(numer_list[a])
         numer_list_binary.append(binary)
     for nums in range(len(numer_list_binary)):
-        print("HEJHEJEJEHJE", nums, len(numer_list_binary))
         numer_list_binary[nums] = numer_list_binary[nums][2:]
         numer_list_binary[nums] = ('0' * (8 - (len(numer_list_binary[nums])))) + numer_list_binary[nums]
 
@@ -26,17 +25,13 @@ def conn_pairs():
         w_lb_psl = random.random()
         if w_lb_psl < pr_krzyz:
             pc = random.randint(1, 7)
-            print("siema", numer_list_binary, x)
             p1 = numer_list_binary[x + 1][:pc] + numer_list_binary[x][pc:]
             p2 = numer_list_binary[x][:pc] + numer_list_binary[x + 1][pc:]
             numer_list_binary[x] = p1
             numer_list_binary[x + 1] = p2
-            #print("Osobniki: " + p1 + " oraz " + p2 + " są wykrzyżowane")
-
-
 
 def mutation():
-    print("Lista przed mutacją: ", numer_list_binary)
+    #print("Lista przed mutacją: ", numer_list_binary)
     for q in range(len(numer_list_binary)):
         numer_list_last = []
         for o in range(len(numer_list_binary[q])):
@@ -49,13 +44,13 @@ def mutation():
             else:
                 numer_list_last.append(numer_list_binary[q][o])
         numer_list_binary[q] = ''.join(numer_list_last)
-    print("Lista po mutacji: ", numer_list_binary)
+    #print("Lista po mutacji: ", numer_list_binary)
 
 
 def change_int():
     for h in range(len(numer_list_binary)):
         numer_list[h] = int(numer_list_binary[h],2)
-    print("Lista po mutacji i konwersji: ",numer_list)
+    #print("Lista po mutacji i konwersji: ",numer_list)
 
 
 def function():
@@ -63,30 +58,26 @@ def function():
     for v in range(len(numer_list)):
         fun = (a * numer_list[v]**2) + b * (numer_list[v]) + c
         function_list.append(fun)
-        print("Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x:", numer_list[v], "wynosi: ", fun)
-    print(function_list)
-
+        #print("Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x:", numer_list[v], "wynosi: ", fun)
+    #print(function_list)
 
 def probability():
     selection_list.clear()
     #checking = 0
     fun_sum = sum(function_list)
-    print(fun_sum)
+    #print(fun_sum)
     for o in range(ile_os):
-        print("siema siema", o, len(function_list))
         propab_fun = function_list[o] / fun_sum
         selection_list.append(propab_fun)
-        print("Wynik prawdopodobieństwa wynosi: ",propab_fun)
-        #hecking += propab_fun
+        #print("Wynik prawdopodobieństwa wynosi: ",propab_fun)
+        #checking += propab_fun
     #print(checking)
 
 
 def selection():
     selection_list_finally.clear()
-    print("selekcja")
-   # [float(x) for x in fun_draw]
-    print(numer_list)
-    print(selection_list)
+    #print(numer_list)
+    #print(selection_list)
 
     for s in range(ile_os):
         f = 0
@@ -94,20 +85,10 @@ def selection():
         for x in range(len(selection_list)):
             if f < ran < selection_list[x] + f:
                 selection_list_finally.append(numer_list[x])
-
             f += selection_list[x]
-    #selection_list_finally.append(person)
-
-   #selection_list_finally.sort()
-    print("ez", selection_list_finally)
-    print("ss", numer_list)
     numer_list.clear()
     for z in range(len(selection_list_finally)):
         numer_list.append(selection_list_finally[z])
-
-
-    #print(numer_list)
-   # print(selection_list_finally)
 
 def func(x):
     return (a * x**2) + (b * x) + c
@@ -115,23 +96,15 @@ def func(x):
 def start():
     check()
     numer_list.clear()
-    print("*" * 100)
     random_number()
-    print("*" * 100)
     for x in range(lb_pop):
         conn_pairs()
-        print("*" * 100)
         mutation()
-        print("*" * 100)
         change_int()
-        print("*" * 100)
         function()
-        print("*" * 100)
         probability()
-        print("*" * 100)
         selection()
-        print("*" * 100)
-        final_list = []
+
 
     best = max(numer_list, key=lambda x: func(x))
 
@@ -157,6 +130,8 @@ selection_list_finally = [] # nowa populacja
 
 
 for x in range(ile_wyn):
+    x += 1
+    print("Przejście pętli: ", x)
     start()
     selection_list.clear()
     fun_draw.clear()
