@@ -133,8 +133,8 @@ for x in range(ile_wyn):
     x += 1
     print("Przejście pętli: ", x)
     start()
-    selection_list.clear()
-    fun_draw.clear()
-    function_list.clear()
-    numer_list_binary.clear()
-    selection_list_finally.clear()
+    #selection_list.clear()
+   # fun_draw.clear()
+    #unction_list.clear()
+   # numer_list_binary.clear()
+   # selection_list_finally.clear()
