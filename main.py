@@ -105,11 +105,10 @@ def start():
         probability()
         selection()
 
-
     best = max(numer_list, key=lambda x: func(x))
 
     with open("esi_db.txt", "a") as f:
-        print(f"best = {best} F(best) = {func(best)}", file=f)
+        print(f"{func(best)} {best}", file=f)
         print("", file=f)
 
 a = 4
@@ -133,8 +132,3 @@ for x in range(ile_wyn):
     x += 1
     print("Przejście pętli: ", x)
     start()
-    #selection_list.clear()
-   # fun_draw.clear()
-    #unction_list.clear()
-   # numer_list_binary.clear()
-   # selection_list_finally.clear()
