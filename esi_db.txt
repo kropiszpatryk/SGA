@@ -1,80 +1,40 @@
-Osobniki: 10100111 oraz 01011001 krzy¿uj¹ siê
-Osobniki: 10111010 oraz 01111100 krzy¿uj¹ siê
-Osobniki: 10000000 oraz 10011010 krzy¿uj¹ siê
-
-Lista przed mutacj¹:  ['10100111', '01011001', '10111010', '01111100', '10000000', '10011010']
-Lista po mutacji:  ['10100111', '11011001', '10111010', '01111100', '10000000', '10011100']
-
-Lista po mutacji i konwersji:  [167, 217, 186, 124, 128, 156]
-
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 167 wynosi:  112727
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 217 wynosi:  189877
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 186 wynosi:  139688
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 124 wynosi:  62374
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 128 wynosi:  66434
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 156 wynosi:  98438
-[112727, 189877, 139688, 62374, 66434, 98438]
-
-Wynik prawdopodobieñstwa wynosi:  0.16836535043567355
-Wynik prawdopodobieñstwa wynosi:  0.283594060381935
-Wynik prawdopodobieñstwa wynosi:  0.20863341587781425
-Wynik prawdopodobieñstwa wynosi:  0.09315976090976166
-Wynik prawdopodobieñstwa wynosi:  0.09922364376629855
-Wynik prawdopodobieñstwa wynosi:  0.147023768628517
-[0.16836535043567355, 0.283594060381935, 0.20863341587781425, 0.09315976090976166, 0.09922364376629855, 0.147023768628517]
-
-[217, 156, 217, 186, 124, 124]
-====================================================================================================
-Osobniki: 01110011 oraz 00000000 krzy¿uj¹ siê
-Osobniki: 11101100 oraz 10101101 krzy¿uj¹ siê
-Osobniki: 00110100 oraz 11100111 krzy¿uj¹ siê
-
-Lista przed mutacj¹:  ['01110011', '00000000', '11101100', '10101101', '00110100', '11100111']
-Lista po mutacji:  ['01100011', '00000000', '11001110', '10101101', '00010100', '11100111']
-
-Lista po mutacji i konwersji:  [99, 0, 206, 173, 20, 231]
-
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 99 wynosi:  39899
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 0 wynosi:  2
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 206 wynosi:  171188
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 173 wynosi:  120929
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 20 wynosi:  1742
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 231 wynosi:  215063
-[39899, 2, 171188, 120929, 1742, 215063]
-
-Wynik prawdopodobieñstwa wynosi:  0.07269921267876893
-Wynik prawdopodobieñstwa wynosi:  3.6441621433504063e-06
-Wynik prawdopodobieñstwa wynosi:  0.31191841449793467
-Wynik prawdopodobieñstwa wynosi:  0.22034244191661065
-Wynik prawdopodobieñstwa wynosi:  0.003174065226858204
-Wynik prawdopodobieñstwa wynosi:  0.3918622215176842
-[0.07269921267876893, 3.6441621433504063e-06, 0.31191841449793467, 0.22034244191661065, 0.003174065226858204, 0.3918622215176842]
-
-[0, 20, 231, 20, 173, 206]
-====================================================================================================
-Osobniki: 10011001 oraz 10001110 krzy¿uj¹ siê
-Osobniki: 00010111 oraz 11100101 krzy¿uj¹ siê
-
-Lista przed mutacj¹:  ['10011001', '10001110', '01110111', '00011000', '00010111', '11100101']
-Lista po mutacji:  ['10011001', '10001110', '01110011', '00010000', '00010111', '11100101']
-
-Lista po mutacji i konwersji:  [153, 142, 115, 16, 23, 229]
-
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 153 wynosi:  94709
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 142 wynosi:  81652
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 115 wynosi:  53707
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 16 wynosi:  1138
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 23 wynosi:  2279
-Wynik funkcji f(x) = ax2 + bx + c dla zmiennej x: 229 wynosi:  211369
-[94709, 81652, 53707, 1138, 2279, 211369]
-
-Wynik prawdopodobieñstwa wynosi:  0.2128990635129728
-Wynik prawdopodobieñstwa wynosi:  0.18354786064641432
-Wynik prawdopodobieñstwa wynosi:  0.12072949776780696
-Wynik prawdopodobieñstwa wynosi:  0.0025581426715281866
-Wynik prawdopodobieñstwa wynosi:  0.005123029128657941
-Wynik prawdopodobieñstwa wynosi:  0.4751424062726198
-[0.2128990635129728, 0.18354786064641432, 0.12072949776780696, 0.0025581426715281866, 0.005123029128657941, 0.4751424062726198]
-
-[142, 16, 23, 229, 153, 153]
-====================================================================================================
+259844 254
+207707 227
+245767 247
+249749 249
+259844 254
+207707 227
+234013 241
+193379 219
+245767 247
+186407 215
+232082 240
+243788 246
+224438 236
+220664 234
+239854 244
+247754 248
+251752 250
+243788 246
+257809 253
+237899 243
+261887 255
+243788 246
+207707 227
+257809 253
+239854 244
+184684 214
+188138 216
+239854 244
+261887 255
+251752 250
+234013 241
+251752 250
+230159 239
+230159 239
+247754 248
+234013 241
+215063 231
+249749 249
+255782 252
+230159 239
