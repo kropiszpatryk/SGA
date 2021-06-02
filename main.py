@@ -8,6 +8,9 @@ def random_number():
     for i in range(ile_os):
         number = random.randint(0,255)
         numer_list.append(number)
+        #test#
+
+
 
 def change_binary():
     numer_list_binary.clear()
